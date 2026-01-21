@@ -5,7 +5,6 @@ import cn.edu.hdu.acm.problem3795.dto.response.PokerHandsQueryResponse;
 import cn.edu.hdu.acm.problem3795.model.IHandScoreFromLine;
 import cn.edu.hdu.acm.problem3795.model.PokerHand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
