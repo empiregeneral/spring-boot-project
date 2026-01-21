@@ -20,7 +20,7 @@ public class PokerController {
 
     @PostMapping("/compare")
     public ResponseEntity<PokerCompareResponse> compare(
-            @Valid @RequestBody PokerCompareRequest request) {
+                @Valid @RequestBody PokerCompareRequest request) {
         PokerCompareResponse response = pokerService.compareHands(
                 request.getHand1().trim(),
                 request.getHand2().trim()
