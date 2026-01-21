@@ -1,5 +1,6 @@
 package cn.edu.hdu.acm.problem3795.controller;
 
+import cn.edu.hdu.acm.problem3795.dto.request.PokerHandsQueryRequest;
 import cn.edu.hdu.acm.problem3795.dto.response.PokerHandsGenerateResponse;
 import cn.edu.hdu.acm.problem3795.dto.response.PokerHandsQueryResponse;
 import cn.edu.hdu.acm.problem3795.service.PokerService;
@@ -42,8 +43,9 @@ public class PokerController {
     }
 
     @GetMapping("/query")
-    public  ResponseEntity<PokerHandsQueryResponse> queryPokerHandScore(@Valid @RequestBody String input) {
-        PokerHandsQueryResponse response = pokerService.queryHandScoreResult(input);
+    public  ResponseEntity<PokerHandsQueryResponse> queryPokerHandScore(@Valid @RequestBody PokerHandsQueryRequest request) {
+        ResponseEntity<PokerHandsQueryResponse> responseEntity = pokerService.queryHandScoreResult(request.getHand());
+        return responseEntity;
 
 
     }

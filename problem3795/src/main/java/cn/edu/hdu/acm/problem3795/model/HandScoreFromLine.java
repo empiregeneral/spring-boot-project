@@ -2,9 +2,7 @@ package cn.edu.hdu.acm.problem3795.model;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @Author: canzuo
@@ -14,12 +12,13 @@ import java.util.Set;
  */
 @Component
 public class HandScoreFromLine implements IHandScoreFromLine {
-    private String input;
-    private int[] ranks = new int[PokerHand.HAND_SIZE];
-    private int[] suits = new int[PokerHand.HAND_SIZE];
 
-    public int HandScoreFromLine(String input) {
-        this.input = input;
+
+    @Override
+    public PokerHand.HandScore translate(String input) {
+        int[] ranks = new int[PokerHand.HAND_SIZE];
+        int[] suits = new int[PokerHand.HAND_SIZE];
+
         String[] cards = input.split(" ");
         Set<String> set = new HashSet<>();
         for (int i = 0; i < PokerHand.HAND_SIZE; i++) {
@@ -31,10 +30,6 @@ public class HandScoreFromLine implements IHandScoreFromLine {
             assert set.add(card);
         }
         Arrays.sort(ranks);
-        return hand(input);
-    }
-    @Override
-    public int hand(String input) {
         int hand = 0;
         for (int i = 0; i < PokerHand.HAND_SIZE; i++) {
             hand = PokerHand.setCard(hand, i, ranks[i]);
@@ -48,6 +43,6 @@ public class HandScoreFromLine implements IHandScoreFromLine {
         if (flush) {
             hand = PokerHand.setFlush(hand);
         }
-        return hand;
+        return new PokerHand.HandScore(hand);
     }
 }

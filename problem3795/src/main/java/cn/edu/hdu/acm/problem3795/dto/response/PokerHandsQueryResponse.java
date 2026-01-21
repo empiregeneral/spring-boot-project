@@ -6,6 +6,11 @@ import lombok.Data;
 public class PokerHandsQueryResponse {
     private String result;
 
-    private int position;
+    private int value;
+
+    public PokerHandsQueryResponse(String result, int value) {
+        this.result = result;
+        this.value = value;
+    }
 
 }

@@ -7,5 +7,5 @@ package cn.edu.hdu.acm.problem3795.model;
  * @Description: IHandScoreFromLine
  */
 public interface IHandScoreFromLine {
-    int hand(String input);
+    PokerHand.HandScore translate(String input);
 }

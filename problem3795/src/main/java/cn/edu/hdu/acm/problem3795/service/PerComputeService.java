@@ -21,7 +21,6 @@ public class PerComputeService {
         generateAllInternal();
     }
 
-    // 有状态的Bean启动时已经生成只读的handScores
     public List<PokerHand.HandScore> getPerComputedHandScore() {
         if (handScores == null) {
             synchronized (this) {
