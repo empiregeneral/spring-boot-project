@@ -54,6 +54,7 @@ public class PokerController {
     public ResponseEntity<PokerHandsCompareResponse> compare(@Valid @RequestBody PokerHandsCompareRequest request) {
         PokerHandsCompareResponse response = pokerService.compareHandScoreResult(request.getHand1(),  request.getHand2());
         return ResponseEntity.ok(response);
+
     }
 }
 
