@@ -2,17 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>cn.edu.hdu.acm</groupId>
-    <artifactId>problem3795</artifactId>
+    <groupId>cn.pintia.zoj</groupId>
+    <artifactId>problem1951</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>problem3795</name>
+    <name>problem1951</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.7.6</spring-boot.version>
-        <arthas.version>4.1.5</arthas.version>
     </properties>
     <dependencies>
         <dependency>
@@ -25,33 +24,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.30</version> <!-- 使用最新版本 -->
-            <!-- <scope>provided</scope>--> <!-- provided表示编译时使用，打包时忽略 -->
-        </dependency>
-        <dependency>
-            <groupId>com.taobao.arthas</groupId>
-            <artifactId>arthas-spring-boot-starter</artifactId>
-            <version>${arthas.version}</version>
-        </dependency>
-
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -82,8 +54,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>cn.edu.hdu.acm.problem3795.Problem3795Application</mainClass>
-                    <skip>false</skip>
+                    <mainClass>cn.pintia.zoj.problem1951.Problem1951Application</mainClass>
+                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
