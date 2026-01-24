@@ -12,6 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.7.6</spring-boot.version>
+        <arthas.version>4.1.5</arthas.version>
     </properties>
     <dependencies>
         <dependency>
@@ -44,6 +45,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.30</version> <!-- 使用最新版本 -->
             <!-- <scope>provided</scope>--> <!-- provided表示编译时使用，打包时忽略 -->
+        </dependency>
+        <dependency>
+            <groupId>com.taobao.arthas</groupId>
+            <artifactId>arthas-spring-boot-starter</artifactId>
+            <version>${arthas.version}</version>
         </dependency>
 
     </dependencies>

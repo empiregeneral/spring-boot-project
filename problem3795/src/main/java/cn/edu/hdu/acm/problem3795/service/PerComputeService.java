@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class PerComputeService {
     public static List<PokerHand.HandScore> handScores = new ArrayList<>();
-    public static final int capacity = 7462;
+    private final int capacity = 7462;
 
     public PokerHandsGenerateResponse generateAll(){
         long start = System.currentTimeMillis();
