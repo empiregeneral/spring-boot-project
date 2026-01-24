@@ -55,7 +55,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>cn.pintia.zoj.problem1951.Problem1951Application</mainClass>
-                    <skip>true</skip>
+                    <skip>false</skip>
                 </configuration>
                 <executions>
                     <execution>
