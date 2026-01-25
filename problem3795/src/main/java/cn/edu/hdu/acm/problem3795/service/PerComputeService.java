@@ -2,6 +2,7 @@ package cn.edu.hdu.acm.problem3795.service;
 
 import cn.edu.hdu.acm.problem3795.dto.response.PokerHandsGenerateResponse;
 import cn.edu.hdu.acm.problem3795.model.PokerHand;
+import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
+@Data
 public class PerComputeService {
     private volatile List<PokerHand.HandScore> handScores = null;
     private final Object lock = new Object();

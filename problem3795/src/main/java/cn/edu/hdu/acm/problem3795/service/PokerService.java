@@ -18,11 +18,9 @@ public class PokerService {
     private PerComputeService perComputeService;
 
     public PokerHandsQueryResponse queryHandScoreResult(String input) {
-        int found = -1;
+        int found;
         PokerHand.HandScore handScore = handScoreAdapt.translate(input);
-        if (found != -1) {
-            found = Collections.binarySearch(perComputeService.getHandScores(), handScore);
-        }
+        found = Collections.binarySearch(perComputeService.getHandScores(), handScore);
 
         return new PokerHandsQueryResponse("PokerHand value:", found);
     }

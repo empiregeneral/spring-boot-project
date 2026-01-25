@@ -36,6 +36,4 @@ public class GoldBachService {
             throw new AssertionError("So The limit ≤ 4e18. Said to Goldbach: There is no Equation");
         }
     }
-
-
 }
