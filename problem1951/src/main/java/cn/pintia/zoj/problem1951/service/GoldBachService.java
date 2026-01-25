@@ -17,7 +17,7 @@ public class GoldBachService {
     }
 
     private String equation(BitSet bitSet, int[] primes, int evenNumber) {
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder();
         try {
             for (int p : primes) {
                 if (p > evenNumber >> 1) {
