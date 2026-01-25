@@ -9,12 +9,10 @@ import java.util.BitSet;
 public class GoldBachService {
     @Autowired
     private PerComputeService preComputeService;
-    private BitSet bitSet;
-    private int[] primes;
 
     public String equationFirst(int evenNumber) {
-        bitSet = preComputeService.getBitSet();
-        primes = preComputeService.getPrimes();
+        BitSet bitSet = preComputeService.getBitSet();
+        int[] primes = preComputeService.getPrimes();
         return equation(bitSet, primes, evenNumber);
     }
 
