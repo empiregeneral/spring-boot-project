@@ -36,7 +36,7 @@ public class PokerController {
 
             long elapsed = System.currentTimeMillis() - start;
 
-            return ResponseEntity.ok(success(perComputeService.handScores.size(), elapsed));
+            return ResponseEntity.ok(success(perComputeService.getHandScores().size(), elapsed));
 
         } catch (Exception e) {
             PokerHandsGenerateResponse response = PokerHandsGenerateResponse.failure(e.getMessage());
