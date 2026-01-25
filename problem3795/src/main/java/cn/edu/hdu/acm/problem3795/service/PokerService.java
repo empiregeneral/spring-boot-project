@@ -21,7 +21,7 @@ public class PokerService {
         int found = -1;
         PokerHand.HandScore handScore = handScoreAdapt.translate(input);
         if (found != -1) {
-            found = Collections.binarySearch(perComputeService.handScores, handScore);
+            found = Collections.binarySearch(perComputeService.getHandScores(), handScore);
         }
 
         return new PokerHandsQueryResponse("PokerHand value:", found);

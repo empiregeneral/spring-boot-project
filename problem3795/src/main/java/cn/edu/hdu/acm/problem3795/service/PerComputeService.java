@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class PerComputeService {
-    public volatile List<PokerHand.HandScore> handScores = null;
+    private volatile List<PokerHand.HandScore> handScores = null;
     private final Object lock = new Object();
     private static final int CAPACITY = 7462;
 
@@ -86,5 +86,9 @@ public class PerComputeService {
                 }
             }
         }
+    }
+
+    public List<PokerHand.HandScore> getHandScores() {
+        return handScores;
     }
 }
