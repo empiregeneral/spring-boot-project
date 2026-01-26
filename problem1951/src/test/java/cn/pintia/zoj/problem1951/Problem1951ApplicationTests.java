@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.IOException;
+
 @SpringBootTest
 class Problem1951ApplicationTests {
 
@@ -17,4 +19,8 @@ class Problem1951ApplicationTests {
         System.out.println(equation);
     }
 
+    @Test
+    public void testAllEquation() throws IOException {
+        goldBachService.listEquationsInFile();
+    }
 }

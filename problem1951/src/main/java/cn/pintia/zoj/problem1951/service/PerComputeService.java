@@ -1,5 +1,6 @@
 package cn.pintia.zoj.problem1951.service;
 
+import cn.pintia.zoj.problem1951.model.annonation.LogExecutionTime;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -16,8 +17,8 @@ public class PerComputeService {
 
 
     @PostConstruct
+    @LogExecutionTime
     public void init() {
-        long start = System.currentTimeMillis();
         b = new BitSet(n);
         int count = 0;
         int i;
@@ -43,8 +44,6 @@ public class PerComputeService {
             i++;
         }
         primes = primes(b);
-        long end = System.currentTimeMillis();
-        System.out.println("Create all primes in 9000001, elapsed time: " + (end - start) +" ms.");
     }
 
     private int[] primes(BitSet b) {

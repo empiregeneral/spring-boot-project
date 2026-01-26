@@ -1,19 +1,38 @@
 package cn.pintia.zoj.problem1951.service;
 
+import cn.pintia.zoj.problem1951.model.annonation.LogExecutionTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.List;
+import java.util.Scanner;
 
 @Service
 public class GoldBachService {
-    @Autowired
-    private PerComputeService preComputeService;
+    private final PerComputeService preComputeService;
+    private  BitSet bitSet;
+    private  int[] primes;
+
+    // 构造器注入
+    public GoldBachService(PerComputeService preComputeService) {
+        this.preComputeService = preComputeService;
+        this.bitSet = preComputeService.getBitSet();
+        this.primes = preComputeService.getPrimes();
+    }
 
     public String equationFirst(int evenNumber) {
-        BitSet bitSet = preComputeService.getBitSet();
-        int[] primes = preComputeService.getPrimes();
         return equation(bitSet, primes, evenNumber);
+    }
+
+    @LogExecutionTime
+    public void listEquationsInFile() throws IOException {
+        OutputStream outputStream = new BufferedOutputStream(System.out);
+        equationAll(bitSet, primes, outputStream);
     }
 
     private String equation(BitSet bitSet, int[] primes, int evenNumber) {
@@ -33,5 +52,24 @@ public class GoldBachService {
         } catch (Exception e) {
             throw new AssertionError("So The limit ≤ 4e18. Said to Goldbach: There is no Equation");
         }
+    }
+
+    private void  equationAll(BitSet bitSet, int[] primes, OutputStream outputStream) throws IOException {
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("goldbach.in");
+        FileWriter fileWriter = new FileWriter("goldbach.out", true);
+        if (inputStream == null) {
+            throw new RuntimeException("There is no input.");
+        }
+
+        Scanner scanner = new Scanner(inputStream);
+        while (scanner.hasNext()) {
+            int evenNum = scanner.nextInt();
+            if (evenNum == 0) {
+                break;
+            }
+            fileWriter.write(equation(bitSet, primes, evenNum));
+        }
+        fileWriter.close();
+        scanner.close();
     }
 }
