@@ -62,6 +62,4 @@ public class PerComputeService {
         return primes.stream().mapToInt(i -> i).toArray();
     }
 
-    public BitSet getBitSet() {
-    }
 }
