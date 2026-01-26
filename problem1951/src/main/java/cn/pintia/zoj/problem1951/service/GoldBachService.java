@@ -1,27 +1,25 @@
 package cn.pintia.zoj.problem1951.service;
 
 import cn.pintia.zoj.problem1951.model.annonation.LogExecutionTime;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
-
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.BitSet;
-import java.util.List;
 import java.util.Scanner;
 
 @Service
 public class GoldBachService {
+    @Getter
     private final PerComputeService preComputeService;
-    private  BitSet bitSet;
-    private  int[] primes;
+    @Getter
+    private  final BitSet bitSet;
+    @Getter
+    private  final int[] primes;
 
     // 构造器注入
     public GoldBachService(PerComputeService preComputeService) {
         this.preComputeService = preComputeService;
-        this.bitSet = preComputeService.getBitSet();
+        this.bitSet = preComputeService.getPrimes();
         this.primes = preComputeService.getPrimes();
     }
 
@@ -72,4 +70,5 @@ public class GoldBachService {
         fileWriter.close();
         scanner.close();
     }
+
 }

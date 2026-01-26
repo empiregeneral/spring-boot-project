@@ -1,6 +1,8 @@
 package cn.pintia.zoj.problem1951.service;
 
 import cn.pintia.zoj.problem1951.model.annonation.LogExecutionTime;
+import lombok.Data;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -10,8 +12,11 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
+@Data
 public class PerComputeService {
+    @Getter
     public volatile BitSet b;
+    @Getter
     public volatile int[] primes;
     private final int n = 900001;
 
@@ -55,13 +60,5 @@ public class PerComputeService {
         }
         Collections.unmodifiableCollection(primes);
         return primes.stream().mapToInt(i -> i).toArray();
-    }
-
-    public int[] getPrimes() {
-        return primes;
-    }
-
-    public BitSet getBitSet() {
-        return b;
     }
 }
