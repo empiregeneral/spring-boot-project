@@ -19,7 +19,7 @@ public class GoldBachService {
     // 构造器注入
     public GoldBachService(PerComputeService preComputeService) {
         this.preComputeService = preComputeService;
-        this.bitSet = preComputeService.getPrimes();
+        this.bitSet = preComputeService.getBitSet();
         this.primes = preComputeService.getPrimes();
     }
 

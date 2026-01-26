@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 public class PerComputeService {
     @Getter
-    public volatile BitSet b;
+    public volatile BitSet betset;
     @Getter
     public volatile int[] primes;
     private final int n = 900001;
@@ -24,31 +24,31 @@ public class PerComputeService {
     @PostConstruct
     @LogExecutionTime
     public void init() {
-        b = new BitSet(n);
+        betset = new BitSet(n);
         int count = 0;
         int i;
         for(i = 2; i <= n; i++) {
-            b.set(i);
+            betset.set(i);
         }
         i = 2;
         while(i  <= Math.sqrt(n)) {
-            if (b.get(i)) {
+            if (betset.get(i)) {
                 count++;
                 int k = 2 * i;
                 while ( k <= n) {
-                    b.clear(k);
+                    betset.clear(k);
                     k += i;
                 }
             }
             i++;
         }
         while (i <= n) {
-            if (b.get(i)) {
+            if (betset.get(i)) {
                 count++;
             }
             i++;
         }
-        primes = primes(b);
+        primes = primes(betset);
     }
 
     private int[] primes(BitSet b) {
@@ -60,5 +60,8 @@ public class PerComputeService {
         }
         Collections.unmodifiableCollection(primes);
         return primes.stream().mapToInt(i -> i).toArray();
+    }
+
+    public BitSet getBitSet() {
     }
 }
