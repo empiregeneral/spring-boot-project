@@ -17,15 +17,15 @@ public class Problem1951Application {
 
 }
 
-@Component
-class CachePreload implements ApplicationRunner {
-    @Autowired
-    private GoldBachService goldBachService;
-
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        goldBachService.equationListInFile();
-    }
-}
+//@Component
+//class CachePreload implements ApplicationRunner {
+//    @Autowired
+//    private GoldBachService goldBachService;
+//
+//    @Override
+//    public void run(ApplicationArguments args) throws Exception {
+//        goldBachService.equationListInFile();
+//    }
+//}
 
 
