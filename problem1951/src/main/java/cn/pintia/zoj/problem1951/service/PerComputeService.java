@@ -18,7 +18,7 @@ public class PerComputeService {
     public volatile BitSet betSet;
     @Getter
     public volatile int[] primes;
-    private final int n = 900001;
+    private final int n = 900_001;
 
 
     @PostConstruct
@@ -48,10 +48,10 @@ public class PerComputeService {
             }
             i++;
         }
-        primes = primes(betSet);
+        primes = extractPrimes(betSet);
     }
 
-    private int[] primes(BitSet b) {
+    private int[] extractPrimes(BitSet b) {
         List<Integer> primes = new ArrayList<>();
         for (int i = 2; i < n; i++) {
             if (b.get(i)) {

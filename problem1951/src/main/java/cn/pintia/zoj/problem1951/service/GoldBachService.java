@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+
 import java.io.*;
 import java.util.BitSet;
 import java.util.Scanner;
