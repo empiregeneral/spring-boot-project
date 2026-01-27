@@ -23,4 +23,10 @@ class Problem1951ApplicationTests {
     public void testAllEquation() throws IOException {
         goldBachService.equationListInFile();
     }
+
+    @Test
+    public void testEquations() {
+        String result = goldBachService.equationsAll(190);
+        System.out.println(result);
+    }
 }

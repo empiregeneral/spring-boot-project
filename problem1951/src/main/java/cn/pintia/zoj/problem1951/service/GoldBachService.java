@@ -4,6 +4,8 @@ import cn.pintia.zoj.problem1951.model.annonation.LogExecutionTime;
 import lombok.Data;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
 import java.io.*;
 import java.util.BitSet;
 import java.util.Scanner;
@@ -35,6 +37,34 @@ public class GoldBachService {
         equationList(bitSet, primes, outputStream);
     }
 
+
+    public String equationsAll(int evenNumber) {
+        return equations(bitSet, primes, evenNumber);
+    }
+
+    private String equations(BitSet bitSet, int[] primes, int evenNumber) {
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            int equationCount = 0;
+            for (int p : primes) {
+                if ( p > evenNumber >>1 ) {
+                    break;
+                }
+                int q = evenNumber - p;
+                if ( q < bitSet.length() && bitSet.get(q)) {
+                    stringBuilder.append(evenNumber).append(" = ").append(p).append(" + ").append(q).append('\n');
+                    ++equationCount;
+                    continue;
+                }
+            }
+            stringBuilder.append("The equations of evenNum: ").append(evenNumber).append(" is ").append(equationCount).append(".\n");
+        } catch (Exception e) {
+            throw new AssertionError("So The limit ≤ 4e18. Said to Goldbach: There is no Equation");
+        }
+
+        return stringBuilder.toString();
+    }
+
     private String equation(BitSet bitSet, int[] primes, int evenNumber) {
         StringBuilder stringBuilder = new StringBuilder();
         try {
@@ -44,8 +74,7 @@ public class GoldBachService {
                 }
                 int q = evenNumber - p;
                 if (q < bitSet.length() && bitSet.get(q)) {
-                    stringBuilder.append(String.format("%d = %d + %d\n", new Object[]{evenNumber, p, q}));
-                    break;
+                    stringBuilder.append(evenNumber).append(" = ").append(p).append(" + ").append(q).append('\n');                    break;
                 }
             }
             return stringBuilder.toString();
