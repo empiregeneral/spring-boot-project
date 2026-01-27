@@ -1,6 +1,7 @@
 package cn.pintia.zoj.problem1951.service;
 
 import cn.pintia.zoj.problem1951.model.annonation.LogExecutionTime;
+import lombok.Data;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 import java.io.*;
@@ -8,6 +9,7 @@ import java.util.BitSet;
 import java.util.Scanner;
 
 @Service
+@Data
 public class GoldBachService {
     @Getter
     private final PerComputeService preComputeService;
@@ -19,7 +21,7 @@ public class GoldBachService {
     // 构造器注入
     public GoldBachService(PerComputeService preComputeService) {
         this.preComputeService = preComputeService;
-        this.bitSet = preComputeService.getBitSet();
+        this.bitSet = preComputeService.getBitset();
         this.primes = preComputeService.getPrimes();
     }
 
@@ -52,7 +54,7 @@ public class GoldBachService {
         }
     }
 
-    private void  equationAll(BitSet bitSet, int[] primes, OutputStream outputStream) throws IOException {
+    private void  equationAll(BitSet bitset, int[] primes, OutputStream outputStream) throws IOException {
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("goldbach.in");
         FileWriter fileWriter = new FileWriter("goldbach.out", true);
         if (inputStream == null) {
