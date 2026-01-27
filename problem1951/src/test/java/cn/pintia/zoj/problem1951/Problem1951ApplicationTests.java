@@ -21,6 +21,6 @@ class Problem1951ApplicationTests {
 
     @Test
     public void testAllEquation() throws IOException {
-        goldBachService.listEquationsInFile();
+        goldBachService.equationListInFile();
     }
 }

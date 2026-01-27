@@ -30,9 +30,9 @@ public class GoldBachService {
     }
 
     @LogExecutionTime
-    public void listEquationsInFile() throws IOException {
+    public void equationListInFile() throws IOException {
         OutputStream outputStream = new BufferedOutputStream(System.out);
-        equationAll(bitSet, primes, outputStream);
+        equationList(bitSet, primes, outputStream);
     }
 
     private String equation(BitSet bitSet, int[] primes, int evenNumber) {
@@ -54,7 +54,7 @@ public class GoldBachService {
         }
     }
 
-    private void  equationAll(BitSet bitset, int[] primes, OutputStream outputStream) throws IOException {
+    private void  equationList(BitSet bitset, int[] primes, OutputStream outputStream) throws IOException {
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("goldbach.in");
         FileWriter fileWriter = new FileWriter("goldbach.out", true);
         if (inputStream == null) {
