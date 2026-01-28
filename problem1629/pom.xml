@@ -65,7 +65,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>cn.edu.hdu.acm.problem1629.Problem1629Application</mainClass>
-                    <skip>true</skip>
+                    <skip>false</skip>
                 </configuration>
                 <executions>
                     <execution>

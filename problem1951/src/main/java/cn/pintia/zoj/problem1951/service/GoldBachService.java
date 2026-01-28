@@ -74,7 +74,8 @@ public class GoldBachService {
                 }
                 int q = evenNumber - p;
                 if (q < bitSet.length() && bitSet.get(q)) {
-                    stringBuilder.append(evenNumber).append(" = ").append(p).append(" + ").append(q).append('\n');                    break;
+                    stringBuilder.append(evenNumber).append(" = ").append(p).append(" + ").append(q).append('\n');
+                    break;
                 }
             }
             return stringBuilder.toString();

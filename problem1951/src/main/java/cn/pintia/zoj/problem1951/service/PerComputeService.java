@@ -58,7 +58,6 @@ public class PerComputeService {
                 primes.add(i);
             }
         }
-        Collections.unmodifiableCollection(primes);
         return primes.stream().mapToInt(i -> i).toArray();
     }
 

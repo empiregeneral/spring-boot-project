@@ -17,8 +17,8 @@ public class ExecutionTimeAspect {
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.nanoTime();
         try {
-            Object result = joinPoint.proceed(); // 执行目标方法
-            return result;
+            // 执行目标方法
+            return joinPoint.proceed();
         } finally {
             long end = System.nanoTime();
             long durationMs = (end - start) / 1_000_000; // 纳秒转毫秒

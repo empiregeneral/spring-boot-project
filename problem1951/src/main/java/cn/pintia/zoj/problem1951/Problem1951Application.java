@@ -25,7 +25,8 @@ class ConnectArthasTunnel implements ApplicationRunner {
     // 启动arthas-tunnel-client
     @Override
     public void run(ApplicationArguments args) throws Exception {
-
+        TunnelClient client = new TunnelClient();
+        client.start();
     }
 }
 
