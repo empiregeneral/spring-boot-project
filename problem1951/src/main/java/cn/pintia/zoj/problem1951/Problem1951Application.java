@@ -1,6 +1,7 @@
 package cn.pintia.zoj.problem1951;
 
 import cn.pintia.zoj.problem1951.service.GoldBachService;
+import com.alibaba.arthas.tunnel.client.TunnelClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -17,15 +18,15 @@ public class Problem1951Application {
 
 }
 
-//@Component
-//class CachePreload implements ApplicationRunner {
-//    @Autowired
-//    private GoldBachService goldBachService;
-//
-//    @Override
-//    public void run(ApplicationArguments args) throws Exception {
-//        goldBachService.equationListInFile();
-//    }
-//}
+
+@Component
+class ConnectArthasTunnel implements ApplicationRunner {
+
+    // 启动arthas-tunnel-client
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+
+    }
+}
 
 

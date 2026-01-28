@@ -51,11 +51,16 @@
             <version>1.18.30</version> <!-- 使用最新版本 -->
             <!-- <scope>provided</scope>--> <!-- provided表示编译时使用，打包时忽略 -->
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.taobao.arthas</groupId>-->
-<!--            <artifactId>arthas-spring-boot-starter</artifactId>-->
-<!--            <version>${arthas.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.taobao.arthas</groupId>
+            <artifactId>arthas-spring-boot-starter</artifactId>
+            <version>${arthas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.taobao.arthas</groupId>
+            <artifactId>arthas-tunnel-client</artifactId>
+            <version>4.1.5</version> <!-- 推荐使用最新稳定版 -->
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
