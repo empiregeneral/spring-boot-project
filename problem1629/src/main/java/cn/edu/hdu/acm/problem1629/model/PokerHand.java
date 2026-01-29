@@ -241,6 +241,7 @@ public class PokerHand {
 
     public static void main(String[] args) {
         String input = "AD JS QD JD TD";
-        System.out.println(PokerHand.valueOf(input));
+        HandScore handScore = new HandScore(PokerHand.valueOf(input));
+        System.out.println(handScore.ranking.toString().toLowerCase());
     }
 }
