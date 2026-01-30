@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @CombinationType("backtrace")
 public class BacktraceStrategy implements CombinationStrategy{
     @Override
-    public int combination(int n, int k) {
+    public List<Integer> combination(int n, int k) {
         return 0;
     }
 }
