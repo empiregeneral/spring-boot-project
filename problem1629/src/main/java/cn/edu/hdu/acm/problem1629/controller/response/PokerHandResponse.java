@@ -1,5 +1,8 @@
 package cn.edu.hdu.acm.problem1629.controller.response;
 
+import lombok.Data;
+
+@Data
 public class PokerHandResponse {
     private String originalInput;
     private String handPart;      // e.g., "TH JH QC QD QS"

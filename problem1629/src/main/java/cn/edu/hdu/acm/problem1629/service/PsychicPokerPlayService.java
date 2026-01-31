@@ -1,7 +1,8 @@
 package cn.edu.hdu.acm.problem1629.service;
 
-import cn.edu.hdu.acm.problem1629.controller.response.PokerHandResponse;
+
 import cn.edu.hdu.acm.problem1629.model.PokerHand;
+import cn.edu.hdu.acm.problem1629.model.factory.CombinateStrategyFactory;
 import cn.edu.hdu.acm.problem1629.model.strategy.CombinationStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,8 +19,11 @@ public class PsychicPokerPlayService {
     @Qualifier("bitmaskCombinationStrategy")
     private CombinationStrategy combinationStrategy;
 
+    public String evaluate(String input ) {
+        return solve(input);
+    }
 
-    public PokerHandResponse evaluate(String line) {
+    private String solve(String line) {
         String[] cards = line.trim().split("\\s+");
         String[] hand = Arrays.copyOfRange(cards, 0, 5);
         String[] deck = Arrays.copyOfRange(cards, 5, 10);
@@ -48,9 +52,8 @@ public class PsychicPokerPlayService {
         Collections.sort(pokerHands);
         PokerHand.HandScore best = Collections.max(pokerHands);
 
-        return PokerHandResponse.of(line, Arrays.toString(hand), Arrays.toString(deck), RANKING_TO_OUTPUT.get(best.getRanking()));
+        return RANKING_TO_OUTPUT.get(best.getRanking());
     }
-
 }
 
 

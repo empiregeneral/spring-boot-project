@@ -29,7 +29,7 @@ class Problem1629ApplicationTests {
 
     @Test
     public void testPsychicPokerPlayService() {
-        System.out.println(psychicPokerPlayService.result("2H 2S 3H 3S 3C 2D 3D 6C 9C TH"));
+        System.out.println(psychicPokerPlayService.evaluate("2H 2S 3H 3S 3C 2D 3D 6C 9C TH"));
     }
 
 }

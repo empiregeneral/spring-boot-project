@@ -10,7 +10,7 @@ import java.util.List;
 
 @CombinationType("Bitmask")
 @Component
-public class BitmaskCombinationStrategy implements CombinationStrategy{
+public class BitmaskStrategy implements CombinationStrategy{
 
     @Override
     public List<Integer> generate(int n, int k) {

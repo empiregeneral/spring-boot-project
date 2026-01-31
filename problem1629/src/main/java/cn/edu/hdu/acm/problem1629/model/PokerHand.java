@@ -247,19 +247,19 @@ public class PokerHand {
         }
     }
 
-    public static final Map<Ranking, String> RANKING_TO_OUTPUT = Collections.emptyMap();
+    public final static Map<Ranking, String> RANKING_TO_OUTPUT = new HashMap<>();
     static {
-        Map<Ranking, String> map = new HashMap<>();
-        map.put(Ranking.STRAIGHT_FLUSH, "straight-flush");
-        map.put(Ranking.FOUR_OR_A_KIND, "four-of-a-kind");
-        map.put(Ranking.FULL_HOUSE, "full-house");
-        map.put( Ranking.FLUSH, "flush");
-        map.put(Ranking.STRAIGHT, "straight");
-        map.put(Ranking.THREE_OF_A_KIND, "three-of-a-kind");
-        map.put( Ranking.TWO_PAIRS, "two-pairs");
-        map.put(Ranking.ONE_PAIR, "one-pair");
-        map.put( Ranking.HIGH_CARD, "highest-card");
-    };
+        RANKING_TO_OUTPUT.put(Ranking.STRAIGHT_FLUSH, "straight-flush");
+        RANKING_TO_OUTPUT.put(Ranking.FOUR_OR_A_KIND, "four-of-a-kind");
+        RANKING_TO_OUTPUT.put(Ranking.FULL_HOUSE, "full-house");
+        RANKING_TO_OUTPUT.put( Ranking.FLUSH, "flush");
+        RANKING_TO_OUTPUT.put(Ranking.STRAIGHT, "straight");
+        RANKING_TO_OUTPUT.put(Ranking.THREE_OF_A_KIND, "three-of-a-kind");
+        RANKING_TO_OUTPUT.put( Ranking.TWO_PAIRS, "two-pairs");
+        RANKING_TO_OUTPUT.put(Ranking.ONE_PAIR, "one-pair");
+        RANKING_TO_OUTPUT.put( Ranking.HIGH_CARD, "highest-card");
+
+    }
 
     public static void main(String[] args) {
         String input = "AD JS QD JD TD";

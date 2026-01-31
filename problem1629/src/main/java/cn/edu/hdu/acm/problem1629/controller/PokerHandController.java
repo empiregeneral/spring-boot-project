@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,14 +20,26 @@ public class PokerHandController {
     @PostMapping("/evaluate")
     public PokerHandResponse evaluateHand(@Valid @RequestBody PokerHandRequest request) {
         String input = request.getInputLine();
-        return ResponseEntity.of(psychicPokerPlayService.evaluate(input));
+        String[] cards = input.trim().split("\\s+");
+        String[] hand = Arrays.copyOfRange(cards, 0, 5);
+        String[] deck = Arrays.copyOfRange(cards, 5, 10);
+        String result = psychicPokerPlayService.evaluate(input);
+
+
+        return PokerHandResponse.of(input, Arrays.toString(hand), Arrays.toString(deck), result);
     }
 
     // 可选：支持多行批量处理
     @PostMapping("/evaluate-batch")
     public List<PokerHandResponse> evaluateBatch(@Valid @RequestBody List<PokerHandRequest> requests) {
         return requests.stream()
-                .map(req -> psychicPokerPlayService.evaluate(req.getInputLine()))
-                .collect(Collectors.toList());
+                .map(req -> {
+                    String input = req.getInputLine();
+                    String[] cards = input.trim().split("\\s+");
+                    String[] hand = Arrays.copyOfRange(cards, 0, 5);
+                    String[] deck = Arrays.copyOfRange(cards, 5, 10);
+                    String result = psychicPokerPlayService.evaluate(req.getInputLine());
+                    return PokerHandResponse.of(input, Arrays.toString(hand), Arrays.toString(deck), result);
+                }).collect(Collectors.toList());
     }
 }
