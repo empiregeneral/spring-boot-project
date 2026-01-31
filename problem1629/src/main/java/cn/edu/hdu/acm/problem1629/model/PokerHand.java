@@ -164,12 +164,22 @@ public class PokerHand {
         };
 
         abstract int map(int hand);
+
+        @Override
+        public String toString() {
+            return name().toLowerCase();
+        }
     }
 
     public static class HandScore implements Comparable<HandScore> {
         final int hand;
         final int map;
         final Ranking ranking;
+
+        public Ranking getRanking() {
+            return ranking;
+        }
+
         final Ranking[] RANKINGS = Ranking.values();
 
         public HandScore(int hand) {
