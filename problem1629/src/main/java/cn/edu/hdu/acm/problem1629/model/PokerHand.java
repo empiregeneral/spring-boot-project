@@ -1,8 +1,6 @@
 package cn.edu.hdu.acm.problem1629.model;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class PokerHand {
     public static final int HAND_SIZE = 5;
@@ -248,6 +246,20 @@ public class PokerHand {
             throw new AssertionError("");
         }
     }
+
+    public static final Map<Ranking, String> RANKING_TO_OUTPUT = Collections.emptyMap();
+    static {
+        Map<Ranking, String> map = new HashMap<>();
+        map.put(Ranking.STRAIGHT_FLUSH, "straight-flush");
+        map.put(Ranking.FOUR_OR_A_KIND, "four-of-a-kind");
+        map.put(Ranking.FULL_HOUSE, "full-house");
+        map.put( Ranking.FLUSH, "flush");
+        map.put(Ranking.STRAIGHT, "straight");
+        map.put(Ranking.THREE_OF_A_KIND, "three-of-a-kind");
+        map.put( Ranking.TWO_PAIRS, "two-pairs");
+        map.put(Ranking.ONE_PAIR, "one-pair");
+        map.put( Ranking.HIGH_CARD, "highest-card");
+    };
 
     public static void main(String[] args) {
         String input = "AD JS QD JD TD";
