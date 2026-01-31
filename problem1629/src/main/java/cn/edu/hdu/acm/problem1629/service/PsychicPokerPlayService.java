@@ -1,5 +1,6 @@
 package cn.edu.hdu.acm.problem1629.service;
 
+import cn.edu.hdu.acm.problem1629.controller.response.PokerHandResponse;
 import cn.edu.hdu.acm.problem1629.model.PokerHand;
 import cn.edu.hdu.acm.problem1629.model.strategy.CombinationStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +10,16 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.Collections;
 
+import static cn.edu.hdu.acm.problem1629.model.PokerHand.RANKING_TO_OUTPUT;
+
 @Service
 public class PsychicPokerPlayService {
     @Autowired
     @Qualifier("bitmaskCombinationStrategy")
     private CombinationStrategy combinationStrategy;
 
-    public String result(String line) {
-        return solve(line);
-    }
 
-    private String solve(String line) {
+    public PokerHandResponse evaluate(String line) {
         String[] cards = line.trim().split("\\s+");
         String[] hand = Arrays.copyOfRange(cards, 0, 5);
         String[] deck = Arrays.copyOfRange(cards, 5, 10);
@@ -46,11 +46,11 @@ public class PsychicPokerPlayService {
             }
         }
         Collections.sort(pokerHands);
-        StringBuilder sb = new StringBuilder();
         PokerHand.HandScore best = Collections.max(pokerHands);
-        sb.append(best.getRanking() + "\n");
 
-        return sb.toString();
+        return PokerHandResponse.of(line, Arrays.toString(hand), Arrays.toString(deck), RANKING_TO_OUTPUT.get(best.getRanking()));
     }
 
 }
+
+
