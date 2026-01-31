@@ -4,7 +4,6 @@ import cn.edu.hdu.acm.problem1629.controller.request.PokerHandRequest;
 import cn.edu.hdu.acm.problem1629.controller.response.PokerHandResponse;
 import cn.edu.hdu.acm.problem1629.service.PsychicPokerPlayService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Arrays;
