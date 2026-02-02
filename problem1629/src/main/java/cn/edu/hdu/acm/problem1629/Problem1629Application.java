@@ -13,4 +13,18 @@ public class Problem1629Application {
     public static void main(String[] args) {
         SpringApplication.run(Problem1629Application.class, args);
     }
+
+    @Component
+    private static class SpringContextHolder implements ApplicationContextAware {
+        private static ApplicationContext ctx;
+
+        @Override
+        public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+            ctx = applicationContext;
+        }
+        public static ApplicationContext getContext() {
+            return ctx;
+        }
+    }
 }
+
