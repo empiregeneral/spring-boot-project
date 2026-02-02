@@ -6,5 +6,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface CombinationType {
-    String value(); // Bit, Backtrace
+    String value(); // bitmask, backtrace
 }

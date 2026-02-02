@@ -2,6 +2,7 @@ package cn.edu.hdu.acm.problem1629.service;
 
 
 import cn.edu.hdu.acm.problem1629.model.PokerHand;
+import cn.edu.hdu.acm.problem1629.model.factory.CombinateStrategyFactory;
 import cn.edu.hdu.acm.problem1629.model.strategy.CombinationStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,8 +16,11 @@ import static cn.edu.hdu.acm.problem1629.model.PokerHand.RANKING_TO_OUTPUT;
 @Service
 public class PsychicPokerPlayService {
     @Autowired
-    @Qualifier("bitmaskCombinationStrategy")
     private CombinationStrategy combinationStrategy;
+
+
+    @Autowired
+    private CombinateStrategyFactory combinateStrategyFactory;
 
     public String evaluate(String input ) {
         return solve(input);
@@ -29,7 +33,7 @@ public class PsychicPokerPlayService {
         List<PokerHand.HandScore> pokerHands = new ArrayList<>();
 
         for (int keep = 0; keep < 5; keep++) {
-            int take = 5 - keep; // 从 deck 取的数量
+            int take = 5 - keep;// 从 deck 取的数量
             List<Integer> masks = combinationStrategy.generate(5, keep);
             for (int mask : masks) {
                 List<String> selected = new ArrayList<>();

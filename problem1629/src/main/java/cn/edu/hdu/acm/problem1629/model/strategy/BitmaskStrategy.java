@@ -1,6 +1,7 @@
 package cn.edu.hdu.acm.problem1629.model.strategy;
 
 import cn.edu.hdu.acm.problem1629.model.annotation.CombinationType;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-@CombinationType("Bitmask")
+@CombinationType("bitmask")
 @Component
 public class BitmaskStrategy implements CombinationStrategy{
 

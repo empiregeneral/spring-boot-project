@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class Problem1629ApplicationTests {
     @Autowired
-    @Qualifier("bitmaskCombinationStrategy")
+    @Qualifier("backtraceStrategy")
     private CombinationStrategy combinationStrategy;
 
     @Autowired
