@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -xe
 
 # 生成 test_batch.sh
 while read line; do

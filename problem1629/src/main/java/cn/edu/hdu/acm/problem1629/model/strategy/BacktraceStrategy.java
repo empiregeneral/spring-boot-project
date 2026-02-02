@@ -1,6 +1,7 @@
 package cn.edu.hdu.acm.problem1629.model.strategy;
 
 import cn.edu.hdu.acm.problem1629.model.annotation.CombinationType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,9 +11,11 @@ import java.util.List;
 
 @Component
 @CombinationType("backtrace")
+@Slf4j
 public class BacktraceStrategy implements CombinationStrategy{
     @Override
     public List<Integer> generate(int n, int k) {
+        log.info("Select backtrace strategy");
         if (k < 0 || k > n) {
             return Collections.emptyList();
         }
