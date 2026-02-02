@@ -15,7 +15,7 @@ import java.util.List;
 public class BacktraceStrategy implements CombinationStrategy{
     @Override
     public List<Integer> generate(int n, int k) {
-        log.info("Select backtrace strategy");
+        log.info("Select backtrace strategy.");
         if (k < 0 || k > n) {
             return Collections.emptyList();
         }

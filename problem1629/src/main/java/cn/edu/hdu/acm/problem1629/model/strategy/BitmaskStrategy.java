@@ -17,7 +17,7 @@ public class BitmaskStrategy implements CombinationStrategy{
 
     @Override
     public List<Integer> generate(int n, int k) {
-        log.info("Select bitmask strategy");
+        log.info("Select bitmask strategy.");
         if (k < 0 || k > n) {
             return Collections.emptyList();
         }
