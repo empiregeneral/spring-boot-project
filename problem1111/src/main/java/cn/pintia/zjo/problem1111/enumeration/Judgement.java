@@ -5,7 +5,7 @@ public enum Judgement {
     Tie("Tie."),
     Player2Win("Player2 wins."),
     ;
-    private String description;
+    private final String description;
 
     Judgement(String description) {
         this.description = description;
