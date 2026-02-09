@@ -2,7 +2,9 @@ package cn.pintia.zjo.problem1111.controller;
 
 import cn.pintia.zjo.problem1111.dto.request.PokerCompareRequest;
 import cn.pintia.zjo.problem1111.dto.response.PokerCompareResponse;
+import cn.pintia.zjo.problem1111.enumeration.Judgement;
 import cn.pintia.zjo.problem1111.service.PokerService;
+import org.javatuples.Triplet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,10 +23,7 @@ public class PokerController {
     @PostMapping("/compare")
     public ResponseEntity<PokerCompareResponse> compare(
                 @Valid @RequestBody PokerCompareRequest request) {
-        PokerCompareResponse response = pokerService.compareHands(
-                request.getHand1().trim(),
-                request.getHand2().trim()
-        );
-        return ResponseEntity.ok(response);
+        Triplet<Judgement, String, String> triplet = pokerService.compareHands( request.getHand1().trim(), request.getHand2().trim());
+        return ResponseEntity.ok(new PokerCompareResponse(triplet.getValue0(), triplet.getValue1(), triplet.getValue2()));
     }
 }
