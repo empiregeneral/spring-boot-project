@@ -25,8 +25,8 @@ public class PrintFibonacciHeaderService{
 }
 
 final class GoldenRatioForFib {
-    private static double goldenRatio1 = (1 + Math.sqrt(5)) / 2;
-    private static double goldenRatio2 = (1 - Math.sqrt(5)) / 2;
+    private static final double goldenRatio1 = (1 + Math.sqrt(5)) / 2;
+    private static final double goldenRatio2 = (1 - Math.sqrt(5)) / 2;
 
     public static int solution(int N) {
         assert N >= 0;
