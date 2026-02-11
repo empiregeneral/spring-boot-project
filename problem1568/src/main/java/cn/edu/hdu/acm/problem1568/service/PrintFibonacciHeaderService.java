@@ -34,7 +34,8 @@ final class GoldenRatioForFib {
             int result = (int)Math.round(Math.pow(goldenRatio1, N)/Math.sqrt(5) - Math.pow(goldenRatio2, N)/Math.sqrt(5));
             return result;
         } else {
-            return (int)Math.round(Math.pow(goldenRatio1, N)/ Math.sqrt(5));
+            int result = (int)Math.round(Math.pow(goldenRatio1, N)/Math.sqrt(5));
+            return result;
         }
     }
 }
