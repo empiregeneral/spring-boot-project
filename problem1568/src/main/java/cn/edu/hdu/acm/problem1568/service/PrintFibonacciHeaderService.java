@@ -3,7 +3,7 @@ package cn.edu.hdu.acm.problem1568.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PrintFibonacciHeaderService {
+public class PrintFibonacciHeaderService{
 
     public String printFibonacciHeader(int n) {
         StringBuilder sb = new StringBuilder();
@@ -21,6 +21,7 @@ public class PrintFibonacciHeaderService {
         double tmp = (log - (int)log + 3);
         return (int)Math.pow(10, tmp);
     }
+
 }
 
 final class GoldenRatioForFib {
