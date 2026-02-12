@@ -70,13 +70,22 @@ public class PerComputeService {
         System.out.println("Create PokerHand.Scores completed in " + (end - start) + " ms");
     }
 
-    private void generate(int hand, int pos, int rankOfHigh, int hc, boolean canflush, List<PokerHand.HandScore> handScores) {
+    /**
+     *
+     * @param hand
+     * @param pos
+     * @param rankOfHigh
+     * @param hc homogeneous count 如生产序列[A A A A K] hc就为4
+     * @param canFlush
+     * @param handScores
+     */
+    private void generate(int hand, int pos, int rankOfHigh, int hc, boolean canFlush, List<PokerHand.HandScore> handScores) {
         if (hc > 1) {
-            canflush = false;
+            canFlush = false;
         }
         if (pos == -1) {
-            generate(hand, -2, rankOfHigh, hc, canflush, handScores);
-            if (canflush) {
+            generate(hand, -2, rankOfHigh, hc, canFlush, handScores);
+            if (canFlush) {
                 generate(PokerHand.setFlush(hand), -2, rankOfHigh, hc, true, handScores);
             }
         } else if (pos == -2) {
@@ -84,7 +93,7 @@ public class PerComputeService {
         } else {
             for (int rank = rankOfHigh; rank >= 0; rank--){
                 if (rank < rankOfHigh || hc < PokerHand.S.length()) {
-                    generate(PokerHand.setCard(hand, pos, rank), pos - 1, rank, rank < rankOfHigh ? 1 : (hc + 1), canflush, handScores);
+                    generate(PokerHand.setCard(hand, pos, rank), pos - 1, rank, rank < rankOfHigh ? 1 : (hc + 1), canFlush, handScores);
                 }
             }
         }
