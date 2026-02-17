@@ -1,13 +1,19 @@
 package cn.edu.hdu.acm.problem1568.service;
 
+import cn.edu.hdu.acm.problem1568.config.FibonacciProperties;
 import org.springframework.stereotype.Service;
+import lombok.RequiredArgsConstructor; // 使用 Lombok 简化构造注入，或手动写构造器
+
 
 @Service
+@RequiredArgsConstructor
 public class PrintFibonacciHeaderService{
+
+    private final FibonacciProperties fibonacciProperties;
 
     public String printFibonacciHeader(int n) {
         StringBuilder sb = new StringBuilder();
-        if (n <= 20) {
+        if (n <= fibonacciProperties.getCutoff()) {
             sb.append(GoldenRatioForFib.solution(n));
         }
         else {
@@ -21,7 +27,6 @@ public class PrintFibonacciHeaderService{
         double tmp = (log - (int)log + 3);
         return (int)Math.pow(10, tmp);
     }
-
 }
 
 final class GoldenRatioForFib {

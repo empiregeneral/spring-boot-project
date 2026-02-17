@@ -15,8 +15,9 @@ class Problem1568ApplicationTests {
     }
     @Test
    public void printFibonacciHeader() {
+        System.out.println(printFibonacciHeaderService.printFibonacciHeader(18));
         System.out.println(printFibonacciHeaderService.printFibonacciHeader(20));
-        System.out.printf(printFibonacciHeaderService.printFibonacciHeader(100000000));
+        System.out.println(printFibonacciHeaderService.printFibonacciHeader(100000000));
     }
 
 }
