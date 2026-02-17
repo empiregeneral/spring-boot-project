@@ -1,5 +1,7 @@
 package cn.edu.hdu.acm.problem1568.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 import javax.validation.constraints.Min;
@@ -9,10 +11,7 @@ import javax.validation.constraints.Min;
 public class FibonacciProperties {
 
     @Min(0)
+    @Getter
+    @Setter
     private int cutoff = 20;
-    public int getCutoff() {
-        return cutoff;
-    }
-
-    public void setCutoff(int cutoff) {this.cutoff = cutoff;}
 }

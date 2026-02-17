@@ -35,12 +35,12 @@ final class GoldenRatioForFib {
 
     public static int solution(int N) {
         assert N >= 0;
+        int result = 0;
         if (N <= 20) {
-            int result = (int)Math.round(Math.pow(goldenRatio1, N)/Math.sqrt(5) - Math.pow(goldenRatio2, N)/Math.sqrt(5));
-            return result;
+            result = (int) Math.round(Math.pow(goldenRatio1, N) / Math.sqrt(5) - Math.pow(goldenRatio2, N) / Math.sqrt(5));
         } else {
-            int result = (int)Math.round(Math.pow(goldenRatio1, N)/Math.sqrt(5));
-            return result;
+            result = (int) Math.round(Math.pow(goldenRatio1, N) / Math.sqrt(5));
         }
+        return result;
     }
 }
